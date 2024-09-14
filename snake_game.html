@@ -1,0 +1,31 @@
+def game():
+    Player_1=input("Player_1 Enter you choice :")
+    stone="stone"
+    paper="paper"
+    sescior="sescior"
+    Player_2=input("Player_2 Enter you choice :")
+    stone="stone"
+    paper="paper"
+    sescior="sescior"
+    if Player_1==Player_2:
+        print("Try again")
+    elif Player_1=="stone" and Player_2=="paper":
+        print("Player_2 win")
+    elif Player_1=="stone" and Player_2=="sescior":
+        print("Player_1 win")
+    elif Player_1=="paper" and Player_2=="stone":
+        print("Player_1 win")
+    elif Player_1=="paper" and Player_2=="sescior":
+        print("Player_2 win")
+    elif Player_1=="sescior" and Player_2=="stone":
+        print("Player_2 win")
+    elif Player_1=="sescior" and Player_2=="paper":
+        print("Player_1 win")
+    else:
+        print("Invalid input")
+    for i in game():
+        return i
+
+        
+game()    
+print("Thankyou for Playing the game")
