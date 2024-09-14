@@ -1,0 +1,15 @@
+import time 
+Ghadi=time.strftime('%H:%M:%S')
+Hr=int(time.strftime('%H'))
+print('Welcome to the Dashboard'.center(100))
+Name=input("Please enter your name :")
+if 0<Hr<12:
+    print("Good Morning guys")
+elif 12<Hr<18:
+    print("Good Evening Guys")
+else:
+    print("Good night guys")
+    if Name=="Kalu" or Name=="Prince":
+        print("You enter in the dashboard")
+    elif Name!='kalu' or Name!="Prince":
+        print("You are not authorise person")
