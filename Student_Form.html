@@ -1,0 +1,50 @@
+from tkinter import *
+def response():
+    print("Your Response is recorded")
+    print(f"{names.get(), phone.get(), gender.get(), emergency.get(), paymentmode.get(), Foodservice.get()} ")
+    
+    with open("Response_Record.txt","a")as f:   #append means add and writing and rewriting
+        f.write(f"{names.get(),phone.get(),gender.get(),emergency.get(),paymentmode.get(),Foodservice.get()} \n")
+
+root=Tk()
+root.geometry("644x344")
+root.title("Student Form")
+Label(text="Student Related Information Form",fg="green").grid(column=5,row=0)
+
+# Cretaing a Labels according to the grid row and columns and same time packing with grid function in row amd columns
+
+
+names=Label(text="Student Name",fg="green").grid(column=0,row=1)
+phone=Label(text="Student Phone Number",fg="green").grid(column=0,row=2)
+gender=Label(text="Student Gender",fg="green").grid(column=0,row=3)
+emergency=Label(text="Student Emergency",fg="green").grid(column=0,row=4)
+paymentmode=Label(text="Payment Mode",fg="green").grid(column=0,row=5)
+
+# Creating a Variable FOR STORINGø
+names=StringVar()
+phone=StringVar()
+gender=StringVar()
+emergency=StringVar()
+paymentmode=StringVar()
+Foodservice=IntVar() #  give in yes or no (Checkbutton)
+
+
+#Creating a input function or entry Function
+namesentry=Entry(root,textvariable=names)
+phoneentry=Entry(root,textvariable=phone)
+genderentry=Entry(root,textvariable=gender)
+emergencyentry=Entry(root,textvariable=emergency)
+paymentmodeentry=Entry(root,textvariable=paymentmode)
+
+# Packing the entry with Grid
+namesentry.grid(column=1,row=1)
+phoneentry .grid(column=1,row=2)
+genderentry.grid(column=1,row=3)
+emergencyentry.grid(column=1,row=4)
+paymentmodeentry.grid(column=1,row=5)
+
+
+# Creating a button for Submtion
+Button(root,text="Submit your Response",command=response).grid(column=1,row=7)
+Checkbutton(root,text="Do you want to add food meal",variable=Foodservice).grid(column=1,row=6)
+root.mainloop()
