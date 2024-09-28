@@ -1,0 +1,96 @@
+from tkinter import *
+
+
+def click(event):
+    global screen_value
+    text=event.widget.cget("text")
+    if text == "=":
+        if screen_value.get().isdigit():
+            value=int(screen_value.get())
+        else:
+            value=eval(screen_value.get())   # eval -ek string ko evaluate krta hai
+            screen_value.set(value)
+            Screen_entry.update()
+    elif text == "C":
+        screen_value.set("")
+        Screen_entry.update()
+    else:
+        screen_value.set(screen_value.get()+text)
+        Screen_entry.update()
+
+root = Tk()
+root.geometry("445x765")
+root.maxsize(445,765)
+root.minsize(445,765)
+root.wm_iconbitmap("logo.png")
+root.title("Prince Calculator")
+screen_value = StringVar()
+screen_value.set("")    # screen ki initial value maine abhi empty rkhi hai isse 0 b set kr skta hu
+
+Screen_entry = Entry(root, textvariable=screen_value, borderwidth=8, font="lucida 18 bold")
+Screen_entry.pack(fill=X, padx=10, pady=10)
+
+frame = Frame(root, bg="grey")
+b = Button(frame, text="7", padx=35, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+b = Button(frame, text="8", padx=35, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+b = Button(frame, text="9", padx=35, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+frame.pack(side=TOP)
+
+frame1 = Frame(root, bg="grey")
+b = Button(frame1, text="4", padx=35, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+b = Button(frame1, text="5", padx=35, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+b = Button(frame1, text="6", padx=35, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+frame1.pack(side=TOP)
+
+frame2 = Frame(root, bg="grey")
+b = Button(frame2, text="1", padx=35, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+b = Button(frame2, text="2", padx=35, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+b = Button(frame2, text="3", padx=35, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+frame2.pack(side=TOP)
+
+frame3 = Frame(root, bg="grey")
+b = Button(frame3, text="0", padx=33, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+b = Button(frame3, text="=", padx=35, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+b = Button(frame3, text="C", padx=34, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+frame3.pack(side=TOP)
+
+frame4 = Frame(root, bg="grey")
+b = Button(frame4, text="+", padx=40, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+b = Button(frame4, text="*", padx=35, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+b = Button(frame4, text="/", padx=34, pady=15, font="lucida 18 bold", borderwidth=8)
+b.pack(side=LEFT, padx=10, pady=10)
+b.bind("<Button-1>",click)
+frame4.pack(side=TOP)
+
+
+root.mainloop()
+
+
